@@ -1,0 +1,122 @@
+[
+  {
+    "id": "a22",
+    "natural_language": "Ensure /work/private is a directory accessible only by its owner (mode 0700), preserving any existing contents.",
+    "formal_query": "create directory at /work/private with read=owner, write=owner, list directory=owner"
+  },
+  {
+    "id": "a23",
+    "natural_language": "Ensure /work/shared has mode 2770, including setgid, without removing existing files.",
+    "formal_query": "create directory at /work/shared with read=owner group, write=owner group, list directory=owner group, setgid=true"
+  },
+  {
+    "id": "a24",
+    "natural_language": "Ensure /work/spool is a directory with mode 1777, including the sticky bit.",
+    "formal_query": "create directory at /work/spool with read=all, write=all, list directory=all, sticky=true"
+  },
+  {
+    "id": "a26",
+    "natural_language": "Ensure /work/banner contains exactly Authorized users only followed by a newline, replacing stale content, with mode 0644.",
+    "formal_query": "create file at /work/banner with content=\"Authorized users only\n\", read=all, write=owner"
+  },
+  {
+    "id": "a29",
+    "natural_language": "Remove /work/link, which may be a symbolic link, while preserving /work/target and its contents.",
+    "formal_query": "delete file at /work/link"
+  },
+  {
+    "id": "a31",
+    "natural_language": "Delete only top-level regular files matching *.tmp in /work/cache, including hidden matches. Preserve directories, nested files, and nonmatches.",
+    "formal_query": "delete files in /work/cache with glob=\"*.tmp\""
+  },
+  {
+    "id": "a40",
+    "natural_language": "Ensure the deploy group exists and the app user exists with deploy as its primary group and a home directory.",
+    "formal_query": "create group with name=deploy; create user with name=app in primary group=deploy"
+  },
+  {
+    "id": "a42",
+    "natural_language": "Set the existing app user primary group to deploy, preserving its existing home directory and its contents.",
+    "formal_query": "create user with name=app in primary group=deploy"
+  },
+  {
+    "id": "a43",
+    "natural_language": "Set the existing app user login shell to /bin/bash without changing its UID or home contents.",
+    "formal_query": "set default shell for user=app to bash"
+  },
+  {
+    "id": "a44",
+    "natural_language": "Remove the retired user account, retaining /home/retired and all its contents.",
+    "formal_query": "delete user with name=retired"
+  },
+  {
+    "id": "a45",
+    "natural_language": "Remove the retired user and its home directory /home/retired while preserving /home/active.",
+    "formal_query": "delete user with name=retired; delete directory at /home/retired"
+  },
+  {
+    "id": "a47",
+    "natural_language": "Ensure /home/app is owned by app:app and has mode 0700, without deleting its contents.",
+    "formal_query": "create directory at /home/app with owner=app, group=app, read=owner, write=owner, list directory=owner"
+  },
+  {
+    "id": "a52",
+    "natural_language": "Clone /fixtures/repo into /work/checkout and check out its release branch; update an existing checkout from main if present.",
+    "formal_query": "clone git repository from /fixtures/repo with branch=release into /work/checkout"
+  },
+  {
+    "id": "a53",
+    "natural_language": "Clone main from /fixtures/repo to /work/checkout if absent. If a checkout already exists, preserve its current commit even if main has advanced.",
+    "formal_query": "if directory /work/checkout not exists then clone git repository from /fixtures/repo with branch=main into /work/checkout"
+  },
+  {
+    "id": "a54",
+    "natural_language": "Ensure /work/checkout is checked out at tag v1 from /fixtures/repo, even when an existing checkout follows main.",
+    "formal_query": "clone git repository from /fixtures/repo with tag=v1 into /work/checkout"
+  },
+  {
+    "id": "a61",
+    "natural_language": "Ensure the analytics group exists, preserving its GID if it already exists.",
+    "formal_query": "create group with name=analytics"
+  },
+  {
+    "id": "a62",
+    "natural_language": "Remove the unused obsolete group if it exists, preserving the active group and its GID.",
+    "formal_query": "delete group with name=obsolete"
+  },
+  {
+    "id": "a63",
+    "natural_language": "Ensure app exists with primary group primary and membership in both deploy and audit. All three groups already exist.",
+    "formal_query": "create user with name=app in primary group=primary, supplemental groups=deploy audit"
+  },
+  {
+    "id": "a64",
+    "natural_language": "Make /work/data owned by app:app, preserving the ownership and bytes of files inside it. The directory and app account already exist.",
+    "formal_query": "create directory at /work/data with owner=app, group=app"
+  },
+  {
+    "id": "a66",
+    "natural_language": "Ensure # managed is the first line of /work/header, retaining all original body lines. The header is initially absent or already first.",
+    "formal_query": "write \"# managed\" to /work/header at position=start"
+  },
+  {
+    "id": "a67",
+    "natural_language": "Give the existing /work/run.sh mode 0700, retaining its bytes and leaving /work/data mode 0644.",
+    "formal_query": "set file permissions for \"/work/run.sh\" to read=owner, write=owner, execute=owner"
+  },
+  {
+    "id": "a68",
+    "natural_language": "Create /work/cache only if the marker file /work/enabled exists. The cache is initially absent and must remain absent without the marker.",
+    "formal_query": "if file /work/enabled exists then create directory at /work/cache"
+  },
+  {
+    "id": "a69",
+    "natural_language": "Write offline to /work/status when /work/maintenance exists; otherwise write online. Do not append a newline.",
+    "formal_query": "if file /work/maintenance exists then create file at /work/status with content=\"offline\" otherwise create file at /work/status with content=\"online\""
+  },
+  {
+    "id": "a70",
+    "natural_language": "Copy the contents of remote /work/source into /work/dest, preserving hidden files, nested structure, the source, and unrelated destination files. Both directories exist.",
+    "formal_query": "copy directory from remote /work/source to remote /work/dest"
+  }
+]

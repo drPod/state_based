@@ -1,0 +1,834 @@
+{
+  "review_rule": "Exclude exact concrete-object overlaps and renamed paraphrases of complete benchmark actions/constraints; retain distinct same-family examples. Review all49 before inference; no generated outcomes inspected.",
+  "original_benchmark_slots": 50,
+  "supported_extras": [
+    "a22",
+    "a23",
+    "a24",
+    "a25",
+    "a26",
+    "a27",
+    "a28",
+    "a29",
+    "a30",
+    "a31",
+    "a32",
+    "a40",
+    "a42",
+    "a43",
+    "a44",
+    "a45",
+    "a46",
+    "a47",
+    "a52",
+    "a53",
+    "a54",
+    "a61",
+    "a62",
+    "a63",
+    "a64",
+    "a65",
+    "a66",
+    "a67",
+    "a68",
+    "a69",
+    "a70"
+  ],
+  "excluded_near_duplicates": {
+    "a25": {
+      "benchmark": "a06",
+      "rationale": "Same conditional file creation; renamed path and literal content."
+    },
+    "a27": {
+      "benchmark": "a04",
+      "rationale": "Same remote file copy; destination-directory creation is an added prerequisite."
+    },
+    "a28": {
+      "benchmark": "a05",
+      "rationale": "Same file move; renamed source/destination and explicit idempotence."
+    },
+    "a30": {
+      "benchmark": "a02",
+      "rationale": "Same recursive directory removal; renamed directory and sibling-preservation clarification."
+    },
+    "a32": {
+      "benchmark": "a13",
+      "rationale": "Same recursive owner-write/all-read/directory-traversal permission policy; renamed path."
+    },
+    "a46": {
+      "benchmark": "a17",
+      "rationale": "Same password-disabling action; renamed account and preservation clarification."
+    },
+    "a65": {
+      "benchmark": "a11",
+      "rationale": "Same append-one-line-to-profile action; renamed profile and line literal."
+    }
+  },
+  "ineligible_original_native_lowering": [
+    "a33",
+    "a34",
+    "a35",
+    "a36",
+    "a37",
+    "a38",
+    "a39",
+    "a41",
+    "a48",
+    "a49",
+    "a50",
+    "a51",
+    "a55",
+    "a56",
+    "a57",
+    "a58",
+    "a59",
+    "a60"
+  ],
+  "eligible_pool": [
+    "a22",
+    "a23",
+    "a24",
+    "a26",
+    "a29",
+    "a31",
+    "a40",
+    "a42",
+    "a43",
+    "a44",
+    "a45",
+    "a47",
+    "a52",
+    "a53",
+    "a54",
+    "a61",
+    "a62",
+    "a63",
+    "a64",
+    "a66",
+    "a67",
+    "a68",
+    "a69",
+    "a70"
+  ],
+  "selection": [
+    {
+      "task_id": "a01",
+      "demonstration_ids": [
+        "a68",
+        "a24",
+        "a42",
+        "a22"
+      ],
+      "scores": [
+        0.11359792104635753,
+        0.09065366728657433,
+        0.0746586906151669,
+        0.07274490520347039
+      ],
+      "original_demonstration_ids": [
+        "a13",
+        "a02",
+        "a03",
+        "a19"
+      ]
+    },
+    {
+      "task_id": "a02",
+      "demonstration_ids": [
+        "a45",
+        "a42",
+        "a40",
+        "a31"
+      ],
+      "scores": [
+        0.23783631682045456,
+        0.14255518146832796,
+        0.12264398825901424,
+        0.11734368600511445
+      ],
+      "original_demonstration_ids": [
+        "a03",
+        "a45",
+        "a42",
+        "a40"
+      ]
+    },
+    {
+      "task_id": "a03",
+      "demonstration_ids": [
+        "a45",
+        "a42",
+        "a44",
+        "a22"
+      ],
+      "scores": [
+        0.2290248128287288,
+        0.1980829435738955,
+        0.1297010465854375,
+        0.126127894000646
+      ],
+      "original_demonstration_ids": [
+        "a02",
+        "a45",
+        "a42",
+        "a22"
+      ]
+    },
+    {
+      "task_id": "a04",
+      "demonstration_ids": [
+        "a45",
+        "a68",
+        "a44",
+        "a42"
+      ],
+      "scores": [
+        0.14342190269820548,
+        0.12637030534202578,
+        0.08905157538979298,
+        0.08887652325896826
+      ],
+      "original_demonstration_ids": [
+        "a05",
+        "a06",
+        "a27",
+        "a16"
+      ]
+    },
+    {
+      "task_id": "a05",
+      "demonstration_ids": [
+        "a45",
+        "a68",
+        "a44",
+        "a42"
+      ],
+      "scores": [
+        0.136529323016919,
+        0.12029719250129565,
+        0.0847719286442759,
+        0.08460528918081503
+      ],
+      "original_demonstration_ids": [
+        "a04",
+        "a06",
+        "a14",
+        "a27"
+      ]
+    },
+    {
+      "task_id": "a06",
+      "demonstration_ids": [
+        "a68",
+        "a53",
+        "a61",
+        "a63"
+      ],
+      "scores": [
+        0.22064307415158904,
+        0.11687435691356535,
+        0.10948995034912284,
+        0.09000124958642773
+      ],
+      "original_demonstration_ids": [
+        "a04",
+        "a05",
+        "a68",
+        "a27"
+      ]
+    },
+    {
+      "task_id": "a07",
+      "demonstration_ids": [
+        "a70",
+        "a31",
+        "a52",
+        "a44"
+      ],
+      "scores": [
+        0.2893217782712382,
+        0.16918764635681455,
+        0.12245792338876547,
+        0.07631337775467474
+      ],
+      "original_demonstration_ids": [
+        "a08",
+        "a70",
+        "a31",
+        "a13"
+      ]
+    },
+    {
+      "task_id": "a08",
+      "demonstration_ids": [
+        "a70",
+        "a31",
+        "a52",
+        "a44"
+      ],
+      "scores": [
+        0.27045603003236923,
+        0.15815546080767798,
+        0.11447283368583516,
+        0.07133722635473529
+      ],
+      "original_demonstration_ids": [
+        "a07",
+        "a70",
+        "a31",
+        "a13"
+      ]
+    },
+    {
+      "task_id": "a09",
+      "demonstration_ids": [
+        "a52",
+        "a53",
+        "a54",
+        "a22"
+      ],
+      "scores": [
+        0.23853056080414028,
+        0.102624888426572,
+        0.07672865243288271,
+        0.0
+      ],
+      "original_demonstration_ids": [
+        "a52",
+        "a20",
+        "a53",
+        "a54"
+      ]
+    },
+    {
+      "task_id": "a10",
+      "demonstration_ids": [
+        "a42",
+        "a43",
+        "a44",
+        "a63"
+      ],
+      "scores": [
+        0.08600638601819537,
+        0.07191916964104723,
+        0.07101784905846566,
+        0.05674126242854019
+      ],
+      "original_demonstration_ids": [
+        "a12",
+        "a14",
+        "a13",
+        "a42"
+      ]
+    },
+    {
+      "task_id": "a11",
+      "demonstration_ids": [
+        "a66",
+        "a22",
+        "a23",
+        "a24"
+      ],
+      "scores": [
+        0.06790650898241461,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "original_demonstration_ids": [
+        "a16",
+        "a65",
+        "a66",
+        "a01"
+      ]
+    },
+    {
+      "task_id": "a12",
+      "demonstration_ids": [
+        "a53",
+        "a61",
+        "a62",
+        "a52"
+      ],
+      "scores": [
+        0.13023370674830861,
+        0.08133681594614757,
+        0.07004409330454621,
+        0.051368287424597446
+      ],
+      "original_demonstration_ids": [
+        "a27",
+        "a15",
+        "a10",
+        "a53"
+      ]
+    },
+    {
+      "task_id": "a13",
+      "demonstration_ids": [
+        "a31",
+        "a70",
+        "a22",
+        "a69"
+      ],
+      "scores": [
+        0.16774106264132965,
+        0.1308703079906047,
+        0.10497261038131146,
+        0.09801843334377314
+      ],
+      "original_demonstration_ids": [
+        "a32",
+        "a31",
+        "a07",
+        "a08"
+      ]
+    },
+    {
+      "task_id": "a14",
+      "demonstration_ids": [
+        "a45",
+        "a44",
+        "a42",
+        "a40"
+      ],
+      "scores": [
+        0.1574256214281714,
+        0.09774657378793249,
+        0.09755442956198818,
+        0.08392865268438875
+      ],
+      "original_demonstration_ids": [
+        "a15",
+        "a19",
+        "a05",
+        "a45"
+      ]
+    },
+    {
+      "task_id": "a15",
+      "demonstration_ids": [
+        "a22",
+        "a23",
+        "a24",
+        "a26"
+      ],
+      "scores": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "original_demonstration_ids": [
+        "a14",
+        "a19",
+        "a21",
+        "a12"
+      ]
+    },
+    {
+      "task_id": "a16",
+      "demonstration_ids": [
+        "a40",
+        "a43",
+        "a42",
+        "a61"
+      ],
+      "scores": [
+        0.2314323458428887,
+        0.20646711203157012,
+        0.16662284768090213,
+        0.13910770896445063
+      ],
+      "original_demonstration_ids": [
+        "a40",
+        "a18",
+        "a43",
+        "a19"
+      ]
+    },
+    {
+      "task_id": "a17",
+      "demonstration_ids": [
+        "a44",
+        "a42",
+        "a40",
+        "a43"
+      ],
+      "scores": [
+        0.08079482612043874,
+        0.08063600460144721,
+        0.06937328478509848,
+        0.06742841738380756
+      ],
+      "original_demonstration_ids": [
+        "a46",
+        "a19",
+        "a42",
+        "a44"
+      ]
+    },
+    {
+      "task_id": "a18",
+      "demonstration_ids": [
+        "a68",
+        "a52",
+        "a53",
+        "a54"
+      ],
+      "scores": [
+        0.05646577083218925,
+        0.02744362564597927,
+        0.02319255240719714,
+        0.021250519608902126
+      ],
+      "original_demonstration_ids": [
+        "a16",
+        "a15",
+        "a19",
+        "a04"
+      ]
+    },
+    {
+      "task_id": "a19",
+      "demonstration_ids": [
+        "a40",
+        "a45",
+        "a61",
+        "a44"
+      ],
+      "scores": [
+        0.18149157111019623,
+        0.1599896455154399,
+        0.12860532649365958,
+        0.09933859271958129
+      ],
+      "original_demonstration_ids": [
+        "a14",
+        "a15",
+        "a40",
+        "a16"
+      ]
+    },
+    {
+      "task_id": "a20",
+      "demonstration_ids": [
+        "a40",
+        "a62",
+        "a42",
+        "a61"
+      ],
+      "scores": [
+        0.21903823296301558,
+        0.20174204144762845,
+        0.15275939159414723,
+        0.11713375475131464
+      ],
+      "original_demonstration_ids": [
+        "a62",
+        "a40",
+        "a09",
+        "a42"
+      ]
+    },
+    {
+      "task_id": "a21",
+      "demonstration_ids": [
+        "a54",
+        "a22",
+        "a23",
+        "a24"
+      ],
+      "scores": [
+        0.04806827164665356,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "original_demonstration_ids": [
+        "a15",
+        "a19",
+        "a14",
+        "a12"
+      ]
+    }
+  ],
+  "selector": "Exact original TF-IDF cosine retrieval, reranked on restricted24-example pool; top4; descending score then ascending ID.",
+  "reviewed_extras": [
+    {
+      "id": "a22",
+      "decision": "eligible",
+      "nl_sha256": "12ba1ae696686a1ea4336745aa84e13329b46936aa78aea707aed284821281af"
+    },
+    {
+      "id": "a23",
+      "decision": "eligible",
+      "nl_sha256": "d00ba79d4a389fc86a8f03010647649007bcabe4758ea62866344dc26b618f3f"
+    },
+    {
+      "id": "a24",
+      "decision": "eligible",
+      "nl_sha256": "5e83de9923b2b9e63d3a37905ccf4b5836c3ca8160fe8611216428612cb6af83"
+    },
+    {
+      "id": "a25",
+      "decision": "exclude_paraphrase",
+      "nl_sha256": "04090b4286351b2c546143595339af401c88033b6d8ffe59a777062c736dc597"
+    },
+    {
+      "id": "a26",
+      "decision": "eligible",
+      "nl_sha256": "57dfc0589ba285a11eb528f8d53e428a875e8bb05af5a25622687b4d4e5680b2"
+    },
+    {
+      "id": "a27",
+      "decision": "exclude_paraphrase",
+      "nl_sha256": "de1805661a762c81fdcfe8bd353390f1b82366a1b8e94118aee5b19c3ff77637"
+    },
+    {
+      "id": "a28",
+      "decision": "exclude_paraphrase",
+      "nl_sha256": "ae603935d6aba14b39b2c729dbae07507cc51a5f2e716b30d29e8b6813c33160"
+    },
+    {
+      "id": "a29",
+      "decision": "eligible",
+      "nl_sha256": "424df54aec623de87160efa0ad06bcd2153e4d1d51affaca4b53c6a7f661a7ff"
+    },
+    {
+      "id": "a30",
+      "decision": "exclude_paraphrase",
+      "nl_sha256": "5dc3c74e547b4baa110eec6808cdf5607b6411be0643a331325fdd22241a9842"
+    },
+    {
+      "id": "a31",
+      "decision": "eligible",
+      "nl_sha256": "0353dfccc7f71437521f4218e611dbf7d0a1ea1cf5c007e029f8d938310801c1"
+    },
+    {
+      "id": "a32",
+      "decision": "exclude_paraphrase",
+      "nl_sha256": "3f37af67a263f5a617aca5b219d1245c648d43aee7b6b0f68e5fc5368e0ee0dd"
+    },
+    {
+      "id": "a33",
+      "decision": "ineligible_original_lowering",
+      "nl_sha256": "43a50c27a090dd0666df6df1c00df9aafd1e9b549f50499c865fd427ad5f45a4"
+    },
+    {
+      "id": "a34",
+      "decision": "ineligible_original_lowering",
+      "nl_sha256": "757e8ba80600aaa9eb8106b38af0042872b726af0618c822c57df2919b834c1a"
+    },
+    {
+      "id": "a35",
+      "decision": "ineligible_original_lowering",
+      "nl_sha256": "3968b16a2ee21b8de65efc2bbba8e058dc989f546aa0d185b947a2929a216a55"
+    },
+    {
+      "id": "a36",
+      "decision": "ineligible_original_lowering",
+      "nl_sha256": "b35e87174f248d814783c3c62702831280bf47c909e4f0f9bfc866c3497f2d64"
+    },
+    {
+      "id": "a37",
+      "decision": "ineligible_original_lowering",
+      "nl_sha256": "1ace7184306ba1958217b55f688226f1c6f153dbe8441cbe238a062505c6786d"
+    },
+    {
+      "id": "a38",
+      "decision": "ineligible_original_lowering",
+      "nl_sha256": "cf7619365319d117b5949dc4a22d08ce5b79376d8e3e5dbadbb14824a485a0ef"
+    },
+    {
+      "id": "a39",
+      "decision": "ineligible_original_lowering",
+      "nl_sha256": "7b20f7c27eec70539fd3c2f0dfe041e3f7ab65bded838007ac8551c9896fe1cd"
+    },
+    {
+      "id": "a40",
+      "decision": "eligible",
+      "nl_sha256": "80af8eac3023e415eaa65a10adf52eb91084df73d537a2345970bdb953b1f364"
+    },
+    {
+      "id": "a41",
+      "decision": "ineligible_original_lowering",
+      "nl_sha256": "4eabff7dbbee3c0a613fd25719aa138ee113af8784ee1340cfcdd2bfa474bf36"
+    },
+    {
+      "id": "a42",
+      "decision": "eligible",
+      "nl_sha256": "40850a5704c1299ff0aae9ff5a8be5eaf22dad5e806dca06139849154a718a57"
+    },
+    {
+      "id": "a43",
+      "decision": "eligible",
+      "nl_sha256": "a2c23f88107b13e44ddba012320c514a392f4585abe1969be77cea70586e1ce5"
+    },
+    {
+      "id": "a44",
+      "decision": "eligible",
+      "nl_sha256": "a84a6f132cd13f172ad2e54b317d9edc31d47b0013cfcc06dd4b22669f6d835c"
+    },
+    {
+      "id": "a45",
+      "decision": "eligible",
+      "nl_sha256": "acbc17ac82f98551b005e311dbaffc0ad028736dac629e2157ea6088bb5f5062"
+    },
+    {
+      "id": "a46",
+      "decision": "exclude_paraphrase",
+      "nl_sha256": "85f293d1ec985e56faa300af8852c048463d9a263cbcf5af240c0894be07cf32"
+    },
+    {
+      "id": "a47",
+      "decision": "eligible",
+      "nl_sha256": "347aa2052b596532a954b27e7fc5469054e22cb4d22fe5fb2c2283c507b71623"
+    },
+    {
+      "id": "a48",
+      "decision": "ineligible_original_lowering",
+      "nl_sha256": "ad0ba4e9631ba21ca2b8290dd6dfeff7975752e8381b13d64c0dee0526e8fe00"
+    },
+    {
+      "id": "a49",
+      "decision": "ineligible_original_lowering",
+      "nl_sha256": "a9b09353902e26fbecc6be85c601e870e5a9444869ddc5d50dea4cd568f164b3"
+    },
+    {
+      "id": "a50",
+      "decision": "ineligible_original_lowering",
+      "nl_sha256": "189a4fa25d7f5364722b066eb629ef79797bf5de90c56f19abcc4c7dabfc9c48"
+    },
+    {
+      "id": "a51",
+      "decision": "ineligible_original_lowering",
+      "nl_sha256": "06b0a6b8ecd92246e03b554325ad720f54f2f0cdc385df0763a9386e3c8b931d"
+    },
+    {
+      "id": "a52",
+      "decision": "eligible",
+      "nl_sha256": "07362e5582b2122178e456eca5e34bf245a926569e0c06ecac9236cd5e9d51ca"
+    },
+    {
+      "id": "a53",
+      "decision": "eligible",
+      "nl_sha256": "341981076e81cd9ed25a03980d1b46dbf1f598d93f16075f693726b77dedf2c9"
+    },
+    {
+      "id": "a54",
+      "decision": "eligible",
+      "nl_sha256": "220261d5c75874d3f7a33a8fd13df7a75d7247c365a4265ad938e0d9118353d5"
+    },
+    {
+      "id": "a55",
+      "decision": "ineligible_original_lowering",
+      "nl_sha256": "a1fdd00c6296e43f0d1a87ad7cd37b67ed6129d67266952ff2e57f3a87f313e5"
+    },
+    {
+      "id": "a56",
+      "decision": "ineligible_original_lowering",
+      "nl_sha256": "a9f528df4d5dd2f8f75abec32e379a71406fb083916a245d6769dc31a473de15"
+    },
+    {
+      "id": "a57",
+      "decision": "ineligible_original_lowering",
+      "nl_sha256": "14a7ba75e033712150bc36f246faac55491423043ee19de12067649accfe3879"
+    },
+    {
+      "id": "a58",
+      "decision": "ineligible_original_lowering",
+      "nl_sha256": "48a740ab315531999b716d0282e238ebeada1c53802937550f4831e230295709"
+    },
+    {
+      "id": "a59",
+      "decision": "ineligible_original_lowering",
+      "nl_sha256": "0c2dc29e13981c18ac8f1d1def8da36ae501497e39a245c195821dc1fb4b4dae"
+    },
+    {
+      "id": "a60",
+      "decision": "ineligible_original_lowering",
+      "nl_sha256": "c2cafdaf22ae1b6943757a2a86fd34bec0d4f8781247c899f5afd95842ea6869"
+    },
+    {
+      "id": "a61",
+      "decision": "eligible",
+      "nl_sha256": "2144aef7dba8498e25956adcfcb3927f9c72d6c7b4911d35b21b1112eec2d0d9"
+    },
+    {
+      "id": "a62",
+      "decision": "eligible",
+      "nl_sha256": "f1f380f222a13f409aa96c9408677757d34ea9ba9457d6757db8cdea4c829635"
+    },
+    {
+      "id": "a63",
+      "decision": "eligible",
+      "nl_sha256": "ecd26234c4ff9d18c8fefe466b9211e37a0c0d2121778b3f238b5ab030d4a3e7"
+    },
+    {
+      "id": "a64",
+      "decision": "eligible",
+      "nl_sha256": "e5319c552c0fbde2c3e7ceeff6b3c0064e3b175beee0053914cc49664ecb2dc2"
+    },
+    {
+      "id": "a65",
+      "decision": "exclude_paraphrase",
+      "nl_sha256": "eba9e22f3f6f4ee569f6d58f46e4d5816ffa65f9f598d09fdbb964f3008bb8fd"
+    },
+    {
+      "id": "a66",
+      "decision": "eligible",
+      "nl_sha256": "e4764722fedb1dee0a0f7a0202e20b81128b567524a6a52ae5266f7048cfafaf"
+    },
+    {
+      "id": "a67",
+      "decision": "eligible",
+      "nl_sha256": "85833ca1b3a4f79ed2a7731df33a0790da417988069d57ee7f071d79f8542442"
+    },
+    {
+      "id": "a68",
+      "decision": "eligible",
+      "nl_sha256": "ef7fc0eda5238cd0a9cb37113fbe23281cb6ec68bb0e9fdcbec3afcc15cab74f"
+    },
+    {
+      "id": "a69",
+      "decision": "eligible",
+      "nl_sha256": "f2a6ac67cd997f7c6e71ddf3778834a5f992bfc98def5e8fb8fda10d444c4615"
+    },
+    {
+      "id": "a70",
+      "decision": "eligible",
+      "nl_sha256": "ab9e3e8b16b1246b1e5a8013f1e188ed929634df666c8a8d86812f7f46069259"
+    }
+  ],
+  "excluded_example_texts": {
+    "a25": {
+      "natural_language": "If /work/app.conf is absent, create it with exactly port=8080 followed by a newline. Otherwise preserve its existing bytes.",
+      "formal_query": "if file \"/work/app.conf\" not exists then create file at \"/work/app.conf\" with content=\"port=8080\n\""
+    },
+    "a27": {
+      "natural_language": "Copy the remote file /work/source to /work/dest/data, creating the destination directory if needed and keeping the source.",
+      "formal_query": "create directory at /work/dest; copy file from remote /work/source to remote /work/dest/data"
+    },
+    "a28": {
+      "natural_language": "Move /work/source to /work/moved, replacing any existing destination and removing the source. The source initially exists; subsequent runs must retain the moved data.",
+      "formal_query": "move file from remote /work/source to remote /work/moved"
+    },
+    "a30": {
+      "natural_language": "Remove /work/obsolete and all its contents, preserving its sibling /work/current.",
+      "formal_query": "delete directory at /work/obsolete"
+    },
+    "a32": {
+      "natural_language": "For /work/tree and its contents, grant owner read/write and everyone read; grant directory traversal without making initially nonexecutable regular files executable.",
+      "formal_query": "set file permissions in /work/tree to read=all, write=owner, list directory=all"
+    },
+    "a46": {
+      "natural_language": "Lock password authentication for the existing app user without replacing its stored password hash; retain the account.",
+      "formal_query": "disable password for user=app"
+    },
+    "a65": {
+      "natural_language": "Ensure export ASTRO=1 is the last line of /work/profile, preserving existing lines. The setting is initially absent or already last.",
+      "formal_query": "write \"export ASTRO=1\" to /work/profile at position=end"
+    }
+  }
+}

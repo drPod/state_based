@@ -1,0 +1,107 @@
+[
+  {
+    "id": "a01",
+    "paper_id": 1,
+    "natural_language": "Create directory /srv/www"
+  },
+  {
+    "id": "a02",
+    "paper_id": 2,
+    "natural_language": "Delete the directory /home/mydata/web"
+  },
+  {
+    "id": "a03",
+    "paper_id": 3,
+    "natural_language": "Delete the contents of the /home/mydata/web directory"
+  },
+  {
+    "id": "a04",
+    "paper_id": 4,
+    "natural_language": "Copy the file /scratch/file.txt to /home/user/data.txt"
+  },
+  {
+    "id": "a05",
+    "paper_id": 5,
+    "natural_language": "Move the file at /scratch/file.txt to /home/user/data.txt"
+  },
+  {
+    "id": "a06",
+    "paper_id": 6,
+    "natural_language": "Create the file /etc/file.txt with the contents ``beginning'' if it does not already exist"
+  },
+  {
+    "id": "a07",
+    "paper_id": 7,
+    "natural_language": "Copy all .war files from /backup on the controller into /tmp on the remote"
+  },
+  {
+    "id": "a08",
+    "paper_id": 8,
+    "natural_language": "Copy all .war files from /tmp on the remote machine into /backup on the controller"
+  },
+  {
+    "id": "a09",
+    "paper_id": 9,
+    "natural_language": "Clone the release1.8.4 branch from the ansible/ansible github repo to /ansible using https"
+  },
+  {
+    "id": "a10",
+    "paper_id": 10,
+    "natural_language": "Permanently set the environment variable LC_ALL to ``C'' system-wide"
+  },
+  {
+    "id": "a11",
+    "paper_id": 11,
+    "natural_language": "Add the line `module load gcc' to the end of foo's bashrc"
+  },
+  {
+    "id": "a12",
+    "paper_id": 12,
+    "natural_language": "For Debian, restart the system if it is needed"
+  },
+  {
+    "id": "a13",
+    "paper_id": 13,
+    "natural_language": "Set permissions for the files and directories under /srv/path so that all users can list and read all files but only the owner can write"
+  },
+  {
+    "id": "a14",
+    "paper_id": 14,
+    "natural_language": "Create a Python 3.10 virtual environment at /user/home/venv and install numpy in it"
+  },
+  {
+    "id": "a15",
+    "paper_id": 15,
+    "natural_language": "For Debian and RedHat based systems, install numpy"
+  },
+  {
+    "id": "a16",
+    "paper_id": 16,
+    "natural_language": "Install zsh, set it as the user `dev''s default shell, and ensure its configuration file exists"
+  },
+  {
+    "id": "a17",
+    "paper_id": 17,
+    "natural_language": "Disable the password for the `service' user"
+  },
+  {
+    "id": "a18",
+    "paper_id": 18,
+    "natural_language": "For RedHat and Ubuntu, install the lastest version of postfix, backup its default configuration file, and download the configuration file from http://example.com/cfg.ubuntu for Ubuntu and http://example.com/cfg.redhat for RedHat"
+  },
+  {
+    "id": "a19",
+    "paper_id": 19,
+    "natural_language": "For RedHat, install apache server, ensure the home page exists, and create a `webdev' user"
+  },
+  {
+    "id": "a20",
+    "paper_id": 20,
+    "natural_language": "Enable passwordless sudo for a `wheel' group and create an `ansible' user in that group"
+  },
+  {
+    "id": "a21",
+    "paper_id": 21,
+    "natural_language": "For Debian and RedHat, install and start an ssh client and server and generated an ssh key for `fizbaz' at /.ssh/fizbaz_rsa"
+  }
+]

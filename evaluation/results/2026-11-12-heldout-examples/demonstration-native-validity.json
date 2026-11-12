@@ -1,0 +1,801 @@
+[
+  {
+    "id": "a22",
+    "status": "ok",
+    "parsed": true,
+    "effects": [
+      {
+        "kind": "create_directory",
+        "destination": {
+          "path": {
+            "kind": "remote",
+            "destination": {
+              "kind": "absolute",
+              "value": "/work/private"
+            }
+          },
+          "owner": null,
+          "group": null,
+          "permissions": {
+            "read": {
+              "owner": true,
+              "group": false,
+              "other": false
+            },
+            "write": {
+              "owner": true,
+              "group": false,
+              "other": false
+            },
+            "execute": null,
+            "list_directory": {
+              "owner": true,
+              "group": false,
+              "other": false
+            },
+            "setuid": null,
+            "setgid": null,
+            "sticky": null
+          }
+        }
+      }
+    ],
+    "returncode": 0
+  },
+  {
+    "id": "a23",
+    "status": "ok",
+    "parsed": true,
+    "effects": [
+      {
+        "kind": "create_directory",
+        "destination": {
+          "path": {
+            "kind": "remote",
+            "destination": {
+              "kind": "absolute",
+              "value": "/work/shared"
+            }
+          },
+          "owner": null,
+          "group": null,
+          "permissions": {
+            "read": {
+              "owner": true,
+              "group": true,
+              "other": false
+            },
+            "write": {
+              "owner": true,
+              "group": true,
+              "other": false
+            },
+            "execute": null,
+            "list_directory": {
+              "owner": true,
+              "group": true,
+              "other": false
+            },
+            "setuid": null,
+            "setgid": true,
+            "sticky": null
+          }
+        }
+      }
+    ],
+    "returncode": 0
+  },
+  {
+    "id": "a24",
+    "status": "ok",
+    "parsed": true,
+    "effects": [
+      {
+        "kind": "create_directory",
+        "destination": {
+          "path": {
+            "kind": "remote",
+            "destination": {
+              "kind": "absolute",
+              "value": "/work/spool"
+            }
+          },
+          "owner": null,
+          "group": null,
+          "permissions": {
+            "read": {
+              "owner": true,
+              "group": true,
+              "other": true
+            },
+            "write": {
+              "owner": true,
+              "group": true,
+              "other": true
+            },
+            "execute": null,
+            "list_directory": {
+              "owner": true,
+              "group": true,
+              "other": true
+            },
+            "setuid": null,
+            "setgid": null,
+            "sticky": true
+          }
+        }
+      }
+    ],
+    "returncode": 0
+  },
+  {
+    "id": "a26",
+    "status": "ok",
+    "parsed": true,
+    "effects": [
+      {
+        "kind": "create_file",
+        "destination": {
+          "path": {
+            "kind": "remote",
+            "destination": {
+              "kind": "absolute",
+              "value": "/work/banner"
+            }
+          },
+          "owner": null,
+          "group": null,
+          "permissions": {
+            "read": {
+              "owner": true,
+              "group": true,
+              "other": true
+            },
+            "write": {
+              "owner": true,
+              "group": false,
+              "other": false
+            },
+            "execute": null,
+            "list_directory": null,
+            "setuid": null,
+            "setgid": null,
+            "sticky": null
+          }
+        },
+        "content": "Authorized users only\n"
+      }
+    ],
+    "returncode": 0
+  },
+  {
+    "id": "a29",
+    "status": "ok",
+    "parsed": true,
+    "effects": [
+      {
+        "kind": "delete_file",
+        "path": {
+          "kind": "remote",
+          "destination": {
+            "kind": "absolute",
+            "value": "/work/link"
+          }
+        }
+      }
+    ],
+    "returncode": 0
+  },
+  {
+    "id": "a31",
+    "status": "ok",
+    "parsed": true,
+    "effects": [
+      {
+        "kind": "delete_files",
+        "paths": {
+          "kind": "glob",
+          "base": {
+            "kind": "remote",
+            "destination": {
+              "kind": "absolute",
+              "value": "/work/cache"
+            }
+          },
+          "glob": "*.tmp"
+        }
+      }
+    ],
+    "returncode": 0
+  },
+  {
+    "id": "a40",
+    "status": "ok",
+    "parsed": true,
+    "effects": [
+      {
+        "kind": "create_group",
+        "name": "deploy"
+      },
+      {
+        "kind": "create_user",
+        "name": "app",
+        "primary_group": "deploy",
+        "supplemental_groups": null
+      }
+    ],
+    "returncode": 0
+  },
+  {
+    "id": "a42",
+    "status": "ok",
+    "parsed": true,
+    "effects": [
+      {
+        "kind": "create_user",
+        "name": "app",
+        "primary_group": "deploy",
+        "supplemental_groups": null
+      }
+    ],
+    "returncode": 0
+  },
+  {
+    "id": "a43",
+    "status": "ok",
+    "parsed": true,
+    "effects": [
+      {
+        "kind": "set_shell",
+        "user": "app",
+        "shell": {
+          "kind": "remote",
+          "destination": {
+            "kind": "absolute",
+            "value": {
+              "kind": "existential",
+              "type": "path",
+              "binder": "__kb_bound_0",
+              "predicate": {
+                "kind": "or",
+                "left": {
+                  "kind": "eq",
+                  "left": {
+                    "kind": "id",
+                    "name": "__kb_bound_0"
+                  },
+                  "right": {
+                    "kind": "path",
+                    "value": "/usr/bin/bash"
+                  }
+                },
+                "right": {
+                  "kind": "or",
+                  "left": {
+                    "kind": "eq",
+                    "left": {
+                      "kind": "id",
+                      "name": "__kb_bound_0"
+                    },
+                    "right": {
+                      "kind": "path",
+                      "value": "/bin/bash"
+                    }
+                  },
+                  "right": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "returncode": 0
+  },
+  {
+    "id": "a44",
+    "status": "ok",
+    "parsed": true,
+    "effects": [
+      {
+        "kind": "delete_user",
+        "name": "retired"
+      }
+    ],
+    "returncode": 0
+  },
+  {
+    "id": "a45",
+    "status": "ok",
+    "parsed": true,
+    "effects": [
+      {
+        "kind": "delete_user",
+        "name": "retired"
+      },
+      {
+        "kind": "delete_directory",
+        "path": {
+          "kind": "remote",
+          "destination": {
+            "kind": "absolute",
+            "value": "/home/retired"
+          }
+        }
+      }
+    ],
+    "returncode": 0
+  },
+  {
+    "id": "a47",
+    "status": "ok",
+    "parsed": true,
+    "effects": [
+      {
+        "kind": "create_directory",
+        "destination": {
+          "path": {
+            "kind": "remote",
+            "destination": {
+              "kind": "absolute",
+              "value": "/home/app"
+            }
+          },
+          "owner": "app",
+          "group": "app",
+          "permissions": {
+            "read": {
+              "owner": true,
+              "group": false,
+              "other": false
+            },
+            "write": {
+              "owner": true,
+              "group": false,
+              "other": false
+            },
+            "execute": null,
+            "list_directory": {
+              "owner": true,
+              "group": false,
+              "other": false
+            },
+            "setuid": null,
+            "setgid": null,
+            "sticky": null
+          }
+        }
+      }
+    ],
+    "returncode": 0
+  },
+  {
+    "id": "a52",
+    "status": "ok",
+    "parsed": true,
+    "effects": [
+      {
+        "kind": "clone",
+        "repository": {
+          "kind": "string",
+          "value": "/fixtures/repo"
+        },
+        "version": "release",
+        "destination": {
+          "path": {
+            "kind": "remote",
+            "destination": {
+              "kind": "absolute",
+              "value": "/work/checkout"
+            }
+          },
+          "owner": null,
+          "group": null,
+          "permissions": {
+            "read": null,
+            "write": null,
+            "execute": null,
+            "list_directory": null,
+            "setuid": null,
+            "setgid": null,
+            "sticky": null
+          }
+        }
+      }
+    ],
+    "returncode": 0
+  },
+  {
+    "id": "a53",
+    "status": "ok",
+    "parsed": true,
+    "effects": [
+      {
+        "kind": "conditional",
+        "condition": {
+          "kind": "directory_exists",
+          "path": {
+            "kind": "remote",
+            "destination": {
+              "kind": "absolute",
+              "value": "/work/checkout"
+            }
+          }
+        },
+        "then": [],
+        "else": [
+          {
+            "kind": "clone",
+            "repository": {
+              "kind": "string",
+              "value": "/fixtures/repo"
+            },
+            "version": "main",
+            "destination": {
+              "path": {
+                "kind": "remote",
+                "destination": {
+                  "kind": "absolute",
+                  "value": "/work/checkout"
+                }
+              },
+              "owner": null,
+              "group": null,
+              "permissions": {
+                "read": null,
+                "write": null,
+                "execute": null,
+                "list_directory": null,
+                "setuid": null,
+                "setgid": null,
+                "sticky": null
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "returncode": 0
+  },
+  {
+    "id": "a54",
+    "status": "ok",
+    "parsed": true,
+    "effects": [
+      {
+        "kind": "clone",
+        "repository": {
+          "kind": "string",
+          "value": "/fixtures/repo"
+        },
+        "version": "v1",
+        "destination": {
+          "path": {
+            "kind": "remote",
+            "destination": {
+              "kind": "absolute",
+              "value": "/work/checkout"
+            }
+          },
+          "owner": null,
+          "group": null,
+          "permissions": {
+            "read": null,
+            "write": null,
+            "execute": null,
+            "list_directory": null,
+            "setuid": null,
+            "setgid": null,
+            "sticky": null
+          }
+        }
+      }
+    ],
+    "returncode": 0
+  },
+  {
+    "id": "a61",
+    "status": "ok",
+    "parsed": true,
+    "effects": [
+      {
+        "kind": "create_group",
+        "name": "analytics"
+      }
+    ],
+    "returncode": 0
+  },
+  {
+    "id": "a62",
+    "status": "ok",
+    "parsed": true,
+    "effects": [
+      {
+        "kind": "delete_group",
+        "name": "obsolete"
+      }
+    ],
+    "returncode": 0
+  },
+  {
+    "id": "a63",
+    "status": "ok",
+    "parsed": true,
+    "effects": [
+      {
+        "kind": "create_user",
+        "name": "app",
+        "primary_group": "primary",
+        "supplemental_groups": [
+          "audit",
+          "deploy"
+        ]
+      }
+    ],
+    "returncode": 0
+  },
+  {
+    "id": "a64",
+    "status": "ok",
+    "parsed": true,
+    "effects": [
+      {
+        "kind": "create_directory",
+        "destination": {
+          "path": {
+            "kind": "remote",
+            "destination": {
+              "kind": "absolute",
+              "value": "/work/data"
+            }
+          },
+          "owner": "app",
+          "group": "app",
+          "permissions": {
+            "read": null,
+            "write": null,
+            "execute": null,
+            "list_directory": null,
+            "setuid": null,
+            "setgid": null,
+            "sticky": null
+          }
+        }
+      }
+    ],
+    "returncode": 0
+  },
+  {
+    "id": "a66",
+    "status": "ok",
+    "parsed": true,
+    "effects": [
+      {
+        "kind": "write_file",
+        "value": "# managed",
+        "destination": {
+          "path": {
+            "kind": "remote",
+            "destination": {
+              "kind": "absolute",
+              "value": "/work/header"
+            }
+          },
+          "owner": null,
+          "group": null,
+          "permissions": {
+            "read": null,
+            "write": null,
+            "execute": null,
+            "list_directory": null,
+            "setuid": null,
+            "setgid": null,
+            "sticky": null
+          }
+        },
+        "position": "top"
+      }
+    ],
+    "returncode": 0
+  },
+  {
+    "id": "a67",
+    "status": "ok",
+    "parsed": true,
+    "effects": [
+      {
+        "kind": "set_file_permissions",
+        "path": {
+          "kind": "remote",
+          "destination": {
+            "kind": "absolute",
+            "value": "/work/run.sh"
+          }
+        },
+        "permissions": {
+          "read": {
+            "owner": true,
+            "group": false,
+            "other": false
+          },
+          "write": {
+            "owner": true,
+            "group": false,
+            "other": false
+          },
+          "execute": {
+            "owner": true,
+            "group": false,
+            "other": false
+          },
+          "list_directory": null,
+          "setuid": null,
+          "setgid": null,
+          "sticky": null
+        }
+      }
+    ],
+    "returncode": 0
+  },
+  {
+    "id": "a68",
+    "status": "ok",
+    "parsed": true,
+    "effects": [
+      {
+        "kind": "conditional",
+        "condition": {
+          "kind": "file_exists",
+          "path": {
+            "kind": "remote",
+            "destination": {
+              "kind": "absolute",
+              "value": "/work/enabled"
+            }
+          }
+        },
+        "then": [
+          {
+            "kind": "create_directory",
+            "destination": {
+              "path": {
+                "kind": "remote",
+                "destination": {
+                  "kind": "absolute",
+                  "value": "/work/cache"
+                }
+              },
+              "owner": null,
+              "group": null,
+              "permissions": {
+                "read": null,
+                "write": null,
+                "execute": null,
+                "list_directory": null,
+                "setuid": null,
+                "setgid": null,
+                "sticky": null
+              }
+            }
+          }
+        ],
+        "else": []
+      }
+    ],
+    "returncode": 0
+  },
+  {
+    "id": "a69",
+    "status": "ok",
+    "parsed": true,
+    "effects": [
+      {
+        "kind": "conditional",
+        "condition": {
+          "kind": "file_exists",
+          "path": {
+            "kind": "remote",
+            "destination": {
+              "kind": "absolute",
+              "value": "/work/maintenance"
+            }
+          }
+        },
+        "then": [
+          {
+            "kind": "create_file",
+            "destination": {
+              "path": {
+                "kind": "remote",
+                "destination": {
+                  "kind": "absolute",
+                  "value": "/work/status"
+                }
+              },
+              "owner": null,
+              "group": null,
+              "permissions": {
+                "read": null,
+                "write": null,
+                "execute": null,
+                "list_directory": null,
+                "setuid": null,
+                "setgid": null,
+                "sticky": null
+              }
+            },
+            "content": "offline"
+          }
+        ],
+        "else": [
+          {
+            "kind": "create_file",
+            "destination": {
+              "path": {
+                "kind": "remote",
+                "destination": {
+                  "kind": "absolute",
+                  "value": "/work/status"
+                }
+              },
+              "owner": null,
+              "group": null,
+              "permissions": {
+                "read": null,
+                "write": null,
+                "execute": null,
+                "list_directory": null,
+                "setuid": null,
+                "setgid": null,
+                "sticky": null
+              }
+            },
+            "content": "online"
+          }
+        ]
+      }
+    ],
+    "returncode": 0
+  },
+  {
+    "id": "a70",
+    "status": "ok",
+    "parsed": true,
+    "effects": [
+      {
+        "kind": "copy_directory",
+        "source": {
+          "kind": "remote",
+          "destination": {
+            "kind": "absolute",
+            "value": "/work/source"
+          }
+        },
+        "destination": {
+          "path": {
+            "kind": "remote",
+            "destination": {
+              "kind": "absolute",
+              "value": "/work/dest"
+            }
+          },
+          "owner": null,
+          "group": null,
+          "permissions": {
+            "read": null,
+            "write": null,
+            "execute": null,
+            "list_directory": null,
+            "setuid": null,
+            "setgid": null,
+            "sticky": null
+          }
+        }
+      }
+    ],
+    "returncode": 0
+  }
+]
