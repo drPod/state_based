@@ -1,0 +1,11 @@
+{
+  "stage": "handbook-v3",
+  "planned": 1260,
+  "terminal": 1260,
+  "pending": 0,
+  "attempts": 1334,
+  "accounted_usd": 5.600944764488,
+  "anthropic_accounted_usd": 3.761715,
+  "total_limit_usd": 12,
+  "anthropic_limit_usd": 6
+}

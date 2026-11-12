@@ -1,0 +1,12 @@
+{
+  "planned": 2520,
+  "terminal": 1260,
+  "pending": 1260,
+  "attempts": 1334,
+  "accounted_usd": 5.600944764488,
+  "anthropic_accounted_usd": 3.761715,
+  "total_limit_usd": 12,
+  "anthropic_limit_usd": 6,
+  "compact_deferred": true,
+  "compact_paid_attempts": 0
+}

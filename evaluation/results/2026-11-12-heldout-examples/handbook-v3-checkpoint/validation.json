@@ -1,0 +1,21 @@
+{
+  "rows": 1260,
+  "unique_cells": 1260,
+  "attempts": 1334,
+  "statuses": {
+    "completed": 1206,
+    "incomplete": 53,
+    "transport_error": 1
+  },
+  "reference_hash_matches_original": true,
+  "accounted_usd": 5.600944764488,
+  "anthropic_usd": 3.761715,
+  "manifest_frozen_at": "2026-11-12T19:35:56.300565+00:00",
+  "first_request_at": "2026-11-12T19:36:02.459262+00:00",
+  "frozen_before_generation": true,
+  "request_settings_and_messages_audited": 1334,
+  "duplicate_cells": false,
+  "output_hashes_match": true,
+  "summary_matches": true,
+  "secret_audit_passed": true
+}

@@ -1,0 +1,607 @@
+{
+  "manifest_sha256": "1d9885699202a6142cbffdc81fb68025b3390b91a53499cd97059b4d03571516",
+  "config": {
+    "repetitions": 10,
+    "max_output_tokens": 4096,
+    "reasoning_effort": "high",
+    "models": {
+      "sol": {
+        "provider": "openai",
+        "id": "gpt-6.1-sol",
+        "stratum": "balanced",
+        "input_per_million": 2,
+        "output_per_million": 10,
+        "cache_write_per_million": 2.5,
+        "cached_input_per_million": 0.1,
+        "pricing_checked": "2026-11-04",
+        "pricing_source": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+        "reasoning_effort": "high",
+        "enabled": true
+      },
+      "opus": {
+        "provider": "anthropic",
+        "id": "claude-opus-5-5",
+        "stratum": "frontier",
+        "enabled": true,
+        "optional": true,
+        "reasoning_effort": "high",
+        "input_per_million": 4,
+        "output_per_million": 20,
+        "cache_write_per_million": 5,
+        "cached_input_per_million": 0.2,
+        "pricing_checked": "2026-11-04",
+        "pricing_source": "https://platform.claude.com/docs/en/models/opus-5-5/overview"
+      },
+      "deepseek-v4.1-flash": {
+        "provider": "agentfanclub",
+        "id": "deepseek-v4.1-flash",
+        "enabled": true,
+        "base_url": "https://api.router.agentfan.club/inference/v1",
+        "reasoning_effort": "high",
+        "catalog_reasoning": true,
+        "input_per_million": 0.256856,
+        "output_per_million": 0.930653,
+        "cache_write_per_million": 0,
+        "cached_input_per_million": 0.256856,
+        "pricing_source": "https://api.router.agentfan.club/api/models",
+        "pricing_checked": "2026-11-04",
+        "pricing_unit_assumption": "USD per million tokens; catalog itself does not label currency or denominator",
+        "catalog_limits": {
+          "context": 1048570,
+          "output": 384000
+        },
+        "reasoning_validation": "HIGH accepted in one Chat Completions connectivity call"
+      },
+      "deepseek-v4-flash": {
+        "provider": "agentfanclub",
+        "id": "deepseek-v4-flash",
+        "enabled": true,
+        "base_url": "https://api.router.agentfan.club/inference/v1",
+        "reasoning_effort": "high",
+        "catalog_reasoning": true,
+        "input_per_million": 0.161857,
+        "output_per_million": 0.37146,
+        "cache_write_per_million": 0,
+        "cached_input_per_million": 0.161857,
+        "pricing_source": "https://api.router.agentfan.club/api/models",
+        "pricing_checked": "2026-11-04",
+        "pricing_unit_assumption": "USD per million tokens; catalog itself does not label currency or denominator",
+        "catalog_limits": {
+          "context": 511994,
+          "output": 128000
+        },
+        "reasoning_validation": "HIGH accepted in one Chat Completions connectivity call"
+      },
+      "glm-5.3": {
+        "provider": "agentfanclub",
+        "id": "glm-5.3",
+        "enabled": true,
+        "base_url": "https://api.router.agentfan.club/inference/v1",
+        "reasoning_effort": "high",
+        "catalog_reasoning": true,
+        "input_per_million": 1.321413,
+        "output_per_million": 4.248318,
+        "cache_write_per_million": 0,
+        "cached_input_per_million": 1.321413,
+        "pricing_source": "https://api.router.agentfan.club/api/models",
+        "pricing_checked": "2026-11-04",
+        "pricing_unit_assumption": "USD per million tokens; catalog itself does not label currency or denominator",
+        "catalog_limits": {
+          "context": 524282,
+          "output": 131072
+        },
+        "reasoning_validation": "HIGH accepted in one Chat Completions connectivity call"
+      },
+      "qwen3.8-flash": {
+        "provider": "agentfanclub",
+        "id": "qwen3.8-flash",
+        "enabled": true,
+        "base_url": "https://api.router.agentfan.club/inference/v1",
+        "reasoning_effort": "xhigh",
+        "catalog_reasoning": false,
+        "input_per_million": 0.142798,
+        "output_per_million": 0.452902,
+        "cache_write_per_million": 0,
+        "cached_input_per_million": 0.142798,
+        "pricing_source": "https://api.router.agentfan.club/api/models",
+        "pricing_checked": "2026-11-04",
+        "pricing_unit_assumption": "USD per million tokens; catalog itself does not label currency or denominator",
+        "catalog_limits": {
+          "context": 262138,
+          "output": 131072
+        },
+        "reasoning_validation": "HIGH rejected HTTP 400; error reports xhigh (default), medium, low. Explicit XHIGH configured from that supported-values response; first effort-omitted call completed. No third call made."
+      }
+    },
+    "matrix_status": "Approved by Darsh 2026-11-04: full 2520-cell matrix, $110 total and $22 cumulative Anthropic guard; bounded transient retries recorded",
+    "provider_budgets_usd": {
+      "anthropic": 6
+    },
+    "prior_cost_usd": 0,
+    "prior_anthropic_cost_usd": 0,
+    "stream_deadline_s": 900
+  },
+  "sources": {
+    "dataset": "a85ee250f5655e296b2f5d95e8abbf9724e3ded6a1f3ff8eb843356a026f0019",
+    "runner": "529e20ac02a63aabbd398a868bf63c4b1dfc3bb3debd92bb830a7ae56a2bcbec",
+    "models": "824e8ab0dfe2a07076e5fc6074f0f3f8007e91062abb8175fe04ce0bdd8114df",
+    "registry": "13ed689602bae1479942d22f510ff7408040586937ee5b46b4032b9aca5a871d",
+    "handbook-v3": "fa729aeaf773aab55c88d9457ae0e742094e97bd72517ac62f32bfaf81ad6a3b",
+    "compact-v1": "0652b99c0314b1ef1153a05e3f87a9ccb2d2d3f84c284c1bcfb42bbe34e52efc",
+    "selector_source": "7e61dcbb81242cbc6dcc19194f32de5970c520a2bf45b6647ff64c20a0914624"
+  },
+  "repetitions": 10,
+  "stage": "handbook-v3",
+  "change": "Only four demonstrations per target replaced using same original TF-IDF selector restricted to24 non-benchmark examples after duplicate review.",
+  "transport": "Router SSE streaming to avoid gateway524; same model/messages/reasoning/max_tokens as original; no temperature/top_p/seed.",
+  "max_attempts": 8,
+  "total_guard_usd": 12,
+  "anthropic_guard_usd": 6,
+  "task_ids": [
+    "a01",
+    "a02",
+    "a03",
+    "a04",
+    "a05",
+    "a06",
+    "a07",
+    "a08",
+    "a09",
+    "a10",
+    "a11",
+    "a12",
+    "a13",
+    "a14",
+    "a15",
+    "a16",
+    "a17",
+    "a18",
+    "a19",
+    "a20",
+    "a21"
+  ],
+  "sampling": "Independent fresh API requests; temperature,top_p,seed omitted.",
+  "selection": [
+    {
+      "task_id": "a01",
+      "demonstration_ids": [
+        "a68",
+        "a24",
+        "a42",
+        "a22"
+      ],
+      "scores": [
+        0.11359792104635753,
+        0.09065366728657433,
+        0.0746586906151669,
+        0.07274490520347039
+      ],
+      "original_demonstration_ids": [
+        "a13",
+        "a02",
+        "a03",
+        "a19"
+      ]
+    },
+    {
+      "task_id": "a02",
+      "demonstration_ids": [
+        "a45",
+        "a42",
+        "a40",
+        "a31"
+      ],
+      "scores": [
+        0.23783631682045456,
+        0.14255518146832796,
+        0.12264398825901424,
+        0.11734368600511445
+      ],
+      "original_demonstration_ids": [
+        "a03",
+        "a45",
+        "a42",
+        "a40"
+      ]
+    },
+    {
+      "task_id": "a03",
+      "demonstration_ids": [
+        "a45",
+        "a42",
+        "a44",
+        "a22"
+      ],
+      "scores": [
+        0.2290248128287288,
+        0.1980829435738955,
+        0.1297010465854375,
+        0.126127894000646
+      ],
+      "original_demonstration_ids": [
+        "a02",
+        "a45",
+        "a42",
+        "a22"
+      ]
+    },
+    {
+      "task_id": "a04",
+      "demonstration_ids": [
+        "a45",
+        "a68",
+        "a44",
+        "a42"
+      ],
+      "scores": [
+        0.14342190269820548,
+        0.12637030534202578,
+        0.08905157538979298,
+        0.08887652325896826
+      ],
+      "original_demonstration_ids": [
+        "a05",
+        "a06",
+        "a27",
+        "a16"
+      ]
+    },
+    {
+      "task_id": "a05",
+      "demonstration_ids": [
+        "a45",
+        "a68",
+        "a44",
+        "a42"
+      ],
+      "scores": [
+        0.136529323016919,
+        0.12029719250129565,
+        0.0847719286442759,
+        0.08460528918081503
+      ],
+      "original_demonstration_ids": [
+        "a04",
+        "a06",
+        "a14",
+        "a27"
+      ]
+    },
+    {
+      "task_id": "a06",
+      "demonstration_ids": [
+        "a68",
+        "a53",
+        "a61",
+        "a63"
+      ],
+      "scores": [
+        0.22064307415158904,
+        0.11687435691356535,
+        0.10948995034912284,
+        0.09000124958642773
+      ],
+      "original_demonstration_ids": [
+        "a04",
+        "a05",
+        "a68",
+        "a27"
+      ]
+    },
+    {
+      "task_id": "a07",
+      "demonstration_ids": [
+        "a70",
+        "a31",
+        "a52",
+        "a44"
+      ],
+      "scores": [
+        0.2893217782712382,
+        0.16918764635681455,
+        0.12245792338876547,
+        0.07631337775467474
+      ],
+      "original_demonstration_ids": [
+        "a08",
+        "a70",
+        "a31",
+        "a13"
+      ]
+    },
+    {
+      "task_id": "a08",
+      "demonstration_ids": [
+        "a70",
+        "a31",
+        "a52",
+        "a44"
+      ],
+      "scores": [
+        0.27045603003236923,
+        0.15815546080767798,
+        0.11447283368583516,
+        0.07133722635473529
+      ],
+      "original_demonstration_ids": [
+        "a07",
+        "a70",
+        "a31",
+        "a13"
+      ]
+    },
+    {
+      "task_id": "a09",
+      "demonstration_ids": [
+        "a52",
+        "a53",
+        "a54",
+        "a22"
+      ],
+      "scores": [
+        0.23853056080414028,
+        0.102624888426572,
+        0.07672865243288271,
+        0.0
+      ],
+      "original_demonstration_ids": [
+        "a52",
+        "a20",
+        "a53",
+        "a54"
+      ]
+    },
+    {
+      "task_id": "a10",
+      "demonstration_ids": [
+        "a42",
+        "a43",
+        "a44",
+        "a63"
+      ],
+      "scores": [
+        0.08600638601819537,
+        0.07191916964104723,
+        0.07101784905846566,
+        0.05674126242854019
+      ],
+      "original_demonstration_ids": [
+        "a12",
+        "a14",
+        "a13",
+        "a42"
+      ]
+    },
+    {
+      "task_id": "a11",
+      "demonstration_ids": [
+        "a66",
+        "a22",
+        "a23",
+        "a24"
+      ],
+      "scores": [
+        0.06790650898241461,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "original_demonstration_ids": [
+        "a16",
+        "a65",
+        "a66",
+        "a01"
+      ]
+    },
+    {
+      "task_id": "a12",
+      "demonstration_ids": [
+        "a53",
+        "a61",
+        "a62",
+        "a52"
+      ],
+      "scores": [
+        0.13023370674830861,
+        0.08133681594614757,
+        0.07004409330454621,
+        0.051368287424597446
+      ],
+      "original_demonstration_ids": [
+        "a27",
+        "a15",
+        "a10",
+        "a53"
+      ]
+    },
+    {
+      "task_id": "a13",
+      "demonstration_ids": [
+        "a31",
+        "a70",
+        "a22",
+        "a69"
+      ],
+      "scores": [
+        0.16774106264132965,
+        0.1308703079906047,
+        0.10497261038131146,
+        0.09801843334377314
+      ],
+      "original_demonstration_ids": [
+        "a32",
+        "a31",
+        "a07",
+        "a08"
+      ]
+    },
+    {
+      "task_id": "a14",
+      "demonstration_ids": [
+        "a45",
+        "a44",
+        "a42",
+        "a40"
+      ],
+      "scores": [
+        0.1574256214281714,
+        0.09774657378793249,
+        0.09755442956198818,
+        0.08392865268438875
+      ],
+      "original_demonstration_ids": [
+        "a15",
+        "a19",
+        "a05",
+        "a45"
+      ]
+    },
+    {
+      "task_id": "a15",
+      "demonstration_ids": [
+        "a22",
+        "a23",
+        "a24",
+        "a26"
+      ],
+      "scores": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "original_demonstration_ids": [
+        "a14",
+        "a19",
+        "a21",
+        "a12"
+      ]
+    },
+    {
+      "task_id": "a16",
+      "demonstration_ids": [
+        "a40",
+        "a43",
+        "a42",
+        "a61"
+      ],
+      "scores": [
+        0.2314323458428887,
+        0.20646711203157012,
+        0.16662284768090213,
+        0.13910770896445063
+      ],
+      "original_demonstration_ids": [
+        "a40",
+        "a18",
+        "a43",
+        "a19"
+      ]
+    },
+    {
+      "task_id": "a17",
+      "demonstration_ids": [
+        "a44",
+        "a42",
+        "a40",
+        "a43"
+      ],
+      "scores": [
+        0.08079482612043874,
+        0.08063600460144721,
+        0.06937328478509848,
+        0.06742841738380756
+      ],
+      "original_demonstration_ids": [
+        "a46",
+        "a19",
+        "a42",
+        "a44"
+      ]
+    },
+    {
+      "task_id": "a18",
+      "demonstration_ids": [
+        "a68",
+        "a52",
+        "a53",
+        "a54"
+      ],
+      "scores": [
+        0.05646577083218925,
+        0.02744362564597927,
+        0.02319255240719714,
+        0.021250519608902126
+      ],
+      "original_demonstration_ids": [
+        "a16",
+        "a15",
+        "a19",
+        "a04"
+      ]
+    },
+    {
+      "task_id": "a19",
+      "demonstration_ids": [
+        "a40",
+        "a45",
+        "a61",
+        "a44"
+      ],
+      "scores": [
+        0.18149157111019623,
+        0.1599896455154399,
+        0.12860532649365958,
+        0.09933859271958129
+      ],
+      "original_demonstration_ids": [
+        "a14",
+        "a15",
+        "a40",
+        "a16"
+      ]
+    },
+    {
+      "task_id": "a20",
+      "demonstration_ids": [
+        "a40",
+        "a62",
+        "a42",
+        "a61"
+      ],
+      "scores": [
+        0.21903823296301558,
+        0.20174204144762845,
+        0.15275939159414723,
+        0.11713375475131464
+      ],
+      "original_demonstration_ids": [
+        "a62",
+        "a40",
+        "a09",
+        "a42"
+      ]
+    },
+    {
+      "task_id": "a21",
+      "demonstration_ids": [
+        "a54",
+        "a22",
+        "a23",
+        "a24"
+      ],
+      "scores": [
+        0.04806827164665356,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "original_demonstration_ids": [
+        "a15",
+        "a19",
+        "a14",
+        "a12"
+      ]
+    }
+  ]
+}

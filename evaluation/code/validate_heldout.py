@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Free consistency/secret audit for published held-out-examples artifacts."""
 import argparse,csv,json
+from datetime import datetime,timezone
 from collections import Counter
 from pathlib import Path
 from evaluate import digest,load
@@ -34,12 +35,19 @@ def validate(directory):
  attemptrows=load(directory/'per-attempt.json');assert len(attemptrows)==sum(r['attempts'] for r in rows)
  assert abs(sum(r['cost_usd'] for r in rows)-meta['matrix_cost_usd'])<1e-8
  assert abs(sum(a['cost_usd'] for a in attemptrows)-meta['matrix_cost_usd'])<1e-8
- request_count=0;private=RUN/'private'
+ request_count=0;private=RUN/'private';frozen_manifest=load(private/'manifest.json');frozen_cells={c['id']:c for c in frozen_manifest['cells']}
+ first_started=min(a['started_at'] for a in load(private/'state.json')['attempts'])
+ frozen_at=datetime.fromtimestamp((private/'manifest.json').stat().st_mtime,timezone.utc)
+ assert frozen_at<datetime.fromisoformat(first_started)
  for a in attemptrows:
   modelkey=next(k for k,v in protocol['config']['models'].items() if v['id']==a['model'])
   ident=f'{modelkey}--{a["variant"]}--{a["task_id"]}--r{a["repeat"]}'
   raw=load(private/'attempts'/(ident+f'--attempt{a["attempt"]}.json'));body=raw['request_body'];model=protocol['config']['models'][modelkey]
   assert body['model']==model['id']
+  messages=frozen_cells[ident]['messages']
+  if model['provider']=='openai':assert body['input']==messages
+  elif model['provider']=='anthropic':assert body['system']==messages[0]['content'] and body['messages']==messages[1:]
+  else:assert body['messages']==messages
   assert body.get('max_tokens',body.get('max_output_tokens'))==4096
   assert not {'temperature','top_p','seed'} & body.keys()
   effort=body.get('reasoning_effort',body.get('reasoning',{}).get('effort',body.get('output_config',{}).get('effort')))
@@ -58,7 +66,7 @@ def validate(directory):
  summary={'rows':len(rows),'unique_cells':len(set(keys)),'attempts':len(attemptrows),'statuses':dict(Counter(r['status'] for r in rows)),
  'reference_hash_matches_original':meta['references_sha256']==load(RUN.parent/'2026-11-04-full-matrix/metadata.json')['references_sha256'],
  'accounted_usd':meta['budget_accounted_usd'],'anthropic_usd':meta['by_model'].get('claude-opus-5-5',0),
- 'request_settings_audited':request_count,'duplicate_cells':False,'output_hashes_match':True,'summary_matches':True,'secret_audit_passed':True}
+ 'manifest_frozen_at':frozen_at.isoformat(),'first_request_at':first_started,'frozen_before_generation':True,'request_settings_and_messages_audited':request_count,'duplicate_cells':False,'output_hashes_match':True,'summary_matches':True,'secret_audit_passed':True}
  assert summary['reference_hash_matches_original']
  (directory/'validation.json').write_text(json.dumps(summary,indent=2)+'\n');print(json.dumps(summary,indent=2))
 

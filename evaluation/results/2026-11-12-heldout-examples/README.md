@@ -53,3 +53,9 @@ Costs are token-accounted estimates at frozen rates, not provider invoices. Unkn
 ## Scope update: compact deferred
 
 Darsh prioritized the dataset count and deferred compact-v1 pending his later decision. The original already-loaded controller had no live phase-pause hook, so it was stopped before any compact calls and resumed with a v3-only default. One v3 request (DeepSeek V4 Flash a13/r1) was interrupted; its $0.003667723980 unknown-billing reservation and full attempt history remain accounted. All successful outputs were retained and were not repeated. The compact final scorer is stopped; the v3 scorer continues.
+
+## Settled handbook-v3 result
+
+The canonical root exports and `handbook-v3-checkpoint/` both contain the completed v3 stage: 1,260 cells, 1,206 completed responses, 53 4096-token cap stops, and one terminal transport failure (DeepSeek V4 Flash a13/r1 after eight attempts). Compact-v1 has zero paid attempts and is deferred. `run-status.json` describes the 1,260-cell v3 stage; `full-plan-status.json` also retains the 1,260 planned-but-deferred compact cells.
+
+Accounted spend is $5.600944764488: $5.104792150617 in reported-token charges plus $0.496152613871 in unknown-billing reservations. Anthropic is $3.761715. These are frozen-rate accounting values, not provider invoices. All original references are unchanged; the report compares the 21-task and 19-task (without a18/a21) views. API errors and cap-limited outputs are separate diagnostics.
