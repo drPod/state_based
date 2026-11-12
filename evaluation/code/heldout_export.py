@@ -56,6 +56,11 @@ def publish(stage='final'):
       original_unmodified_reference_hash=ev.digest((ev.ROOT/'datasets/references-private.json').read_bytes()),
       statuses=dict(Counter(r['status'] for r in rows)),
       note='Original unmodified effect references; cap4096 retained; token-based costs at frozen rates, not invoices. Provider/transport failures separated, retained in denominator but not semantically classified as wrong.')
+    status={'stage':stage,'planned':len(rows),'terminal':sum(r['status']!='pending_budget' for r in rows),
+      'pending':sum(r['status']=='pending_budget' for r in rows),'attempts':sum(r['attempts'] for r in rows),
+      'accounted_usd':meta['budget_accounted_usd'],'anthropic_accounted_usd':meta['by_model'].get('claude-opus-5-5',0),
+      'total_limit_usd':12,'anthropic_limit_usd':6}
+    (dest/'run-status.json').write_text(json.dumps(status,indent=2)+'\n')
     (dest/'metadata.json').write_text(json.dumps(meta,indent=2)+'\n')
     protocol={'manifest_sha256':ev.digest(m),'config':m['config'],'sources':m['sources'],'repetitions':10,
       'stage':stage,'change':'Only four demonstrations per target replaced using same original TF-IDF selector restricted to24 non-benchmark examples after duplicate review.',

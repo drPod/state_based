@@ -15,6 +15,10 @@ def report(directory):
   correct=sum(r['ref_match'] is True for r in rs)
   return f'{correct}/{len(rs)} ({100*correct/len(rs):.2f}%)'
  text=['# Held-out demonstrations: results','',f"Stage: {meta['stage']}. Original unmodified references; reference-effect match is the reported correct metric.",'']
+ selection=load(RUN/'demonstration-selection.json')
+ text += ['## Demonstration selection','','The original frozen matrix used 50 benchmark examples across 84 slots. Exact recovered TF-IDF cosine selection reproduces all 21 original per-task sets. The rerun uses only non-benchmark extras: 31 originally lowered candidates, minus seven conservative renamed paraphrases, leaving 24 eligible examples; 20 appear in the resulting 84 slots.','', '| Excluded extra | Similar benchmark / executor problem | Reason |','|---|---|---|']
+ for extra,v in selection['excluded_near_duplicates'].items():text.append('| '+extra+' | '+v['benchmark']+'/'+v['legacy_id']+' | '+v['rationale']+' |')
+ text.append('')
  for variant in variants:
   text += [f'## {variant}','','| Model | Original 21 tasks | Held-out 21 tasks | Original 19 tasks | Held-out 19 tasks |','|---|---:|---:|---:|---:|']
   for model in models:text.append('| '+model+' | '+' | '.join(score(data,model,variant,ex) for ex in [False,True] for data in [old,rows])+' |')

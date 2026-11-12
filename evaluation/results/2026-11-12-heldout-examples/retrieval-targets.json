@@ -1,107 +1,128 @@
 [
   {
     "id": "a01",
-    "paper_id": 1,
-    "natural_language": "Create directory /srv/www"
+    "natural_language": "Create directory /srv/www",
+    "source_ordinal": 1,
+    "legacy_id": "p01"
   },
   {
     "id": "a02",
-    "paper_id": 2,
-    "natural_language": "Delete the directory /home/mydata/web"
+    "natural_language": "Delete the directory /home/mydata/web",
+    "source_ordinal": 2,
+    "legacy_id": "p05"
   },
   {
     "id": "a03",
-    "paper_id": 3,
-    "natural_language": "Delete the contents of the /home/mydata/web directory"
+    "natural_language": "Delete the contents of the /home/mydata/web directory",
+    "source_ordinal": 3,
+    "legacy_id": "p15"
   },
   {
     "id": "a04",
-    "paper_id": 4,
-    "natural_language": "Copy the file /scratch/file.txt to /home/user/data.txt"
+    "natural_language": "Copy the file /scratch/file.txt to /home/user/data.txt",
+    "source_ordinal": 4,
+    "legacy_id": "p03"
   },
   {
     "id": "a05",
-    "paper_id": 5,
-    "natural_language": "Move the file at /scratch/file.txt to /home/user/data.txt"
+    "natural_language": "Move the file at /scratch/file.txt to /home/user/data.txt",
+    "source_ordinal": 5,
+    "legacy_id": "p12"
   },
   {
     "id": "a06",
-    "paper_id": 6,
-    "natural_language": "Create the file /etc/file.txt with the contents ``beginning'' if it does not already exist"
+    "natural_language": "Create the file /etc/file.txt with the contents ``beginning'' if it does not already exist",
+    "source_ordinal": 6,
+    "legacy_id": "p13"
   },
   {
     "id": "a07",
-    "paper_id": 7,
-    "natural_language": "Copy all .war files from /backup on the controller into /tmp on the remote"
+    "natural_language": "Copy all .war files from /backup on the controller into /tmp on the remote",
+    "source_ordinal": 7,
+    "legacy_id": "p11a"
   },
   {
     "id": "a08",
-    "paper_id": 8,
-    "natural_language": "Copy all .war files from /tmp on the remote machine into /backup on the controller"
+    "natural_language": "Copy all .war files from /tmp on the remote machine into /backup on the controller",
+    "source_ordinal": 8,
+    "legacy_id": "p11b"
   },
   {
     "id": "a09",
-    "paper_id": 9,
-    "natural_language": "Clone the release1.8.4 branch from the ansible/ansible github repo to /ansible using https"
+    "natural_language": "Clone the release1.8.4 branch from the ansible/ansible github repo to /ansible using https",
+    "source_ordinal": 9,
+    "legacy_id": "p07"
   },
   {
     "id": "a10",
-    "paper_id": 10,
-    "natural_language": "Permanently set the environment variable LC_ALL to ``C'' system-wide"
+    "natural_language": "Permanently set the environment variable LC_ALL to ``C'' system-wide",
+    "source_ordinal": 10,
+    "legacy_id": "p02"
   },
   {
     "id": "a11",
-    "paper_id": 11,
-    "natural_language": "Add the line `module load gcc' to the end of foo's bashrc"
+    "natural_language": "Add the line `module load gcc' to the end of foo's bashrc",
+    "source_ordinal": 11,
+    "legacy_id": "p09"
   },
   {
     "id": "a12",
-    "paper_id": 12,
-    "natural_language": "For Debian, restart the system if it is needed"
+    "natural_language": "For Debian, restart the system if it is needed",
+    "source_ordinal": 12,
+    "legacy_id": "p14"
   },
   {
     "id": "a13",
-    "paper_id": 13,
-    "natural_language": "Set permissions for the files and directories under /srv/path so that all users can list and read all files but only the owner can write"
+    "natural_language": "Set permissions for the files and directories under /srv/path so that all users can list and read all files but only the owner can write",
+    "source_ordinal": 13,
+    "legacy_id": "p04"
   },
   {
     "id": "a14",
-    "paper_id": 14,
-    "natural_language": "Create a Python 3.10 virtual environment at /user/home/venv and install numpy in it"
+    "natural_language": "Create a Python 3.10 virtual environment at /user/home/venv and install numpy in it",
+    "source_ordinal": 14,
+    "legacy_id": "p06"
   },
   {
     "id": "a15",
-    "paper_id": 15,
-    "natural_language": "For Debian and RedHat based systems, install numpy"
+    "natural_language": "For Debian and RedHat based systems, install numpy",
+    "source_ordinal": 15,
+    "legacy_id": "p08"
   },
   {
     "id": "a16",
-    "paper_id": 16,
-    "natural_language": "Install zsh, set it as the user `dev''s default shell, and ensure its configuration file exists"
+    "natural_language": "Install zsh, set it as the user `dev''s default shell, and ensure its configuration file exists",
+    "source_ordinal": 16,
+    "legacy_id": "p16"
   },
   {
     "id": "a17",
-    "paper_id": 17,
-    "natural_language": "Disable the password for the `service' user"
+    "natural_language": "Disable the password for the `service' user",
+    "source_ordinal": 17,
+    "legacy_id": "p10"
   },
   {
     "id": "a18",
-    "paper_id": 18,
-    "natural_language": "For RedHat and Ubuntu, install the lastest version of postfix, backup its default configuration file, and download the configuration file from http://example.com/cfg.ubuntu for Ubuntu and http://example.com/cfg.redhat for RedHat"
+    "natural_language": "For RedHat and Ubuntu, install the lastest version of postfix, backup its default configuration file, and download the configuration file from http://example.com/cfg.ubuntu for Ubuntu and http://example.com/cfg.redhat for RedHat",
+    "source_ordinal": 18,
+    "legacy_id": "p17"
   },
   {
     "id": "a19",
-    "paper_id": 19,
-    "natural_language": "For RedHat, install apache server, ensure the home page exists, and create a `webdev' user"
+    "natural_language": "For RedHat, install apache server, ensure the home page exists, and create a `webdev' user",
+    "source_ordinal": 19,
+    "legacy_id": "p18"
   },
   {
     "id": "a20",
-    "paper_id": 20,
-    "natural_language": "Enable passwordless sudo for a `wheel' group and create an `ansible' user in that group"
+    "natural_language": "Enable passwordless sudo for a `wheel' group and create an `ansible' user in that group",
+    "source_ordinal": 20,
+    "legacy_id": "p19"
   },
   {
     "id": "a21",
-    "paper_id": 21,
-    "natural_language": "For Debian and RedHat, install and start an ssh client and server and generated an ssh key for `fizbaz' at /.ssh/fizbaz_rsa"
+    "natural_language": "For Debian and RedHat, install and start an ssh client and server and generated an ssh key for `fizbaz' at /.ssh/fizbaz_rsa",
+    "source_ordinal": 21,
+    "legacy_id": "p20"
   }
 ]

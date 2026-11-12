@@ -1,12 +1,38 @@
-import json,sys,unittest
+import json,sys,unittest,tempfile
+from unittest.mock import patch
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'code'))
 import evaluate as ev
+import heldout_examples as held
 from heldout_examples import RUN,retrieve,EXCLUDED
 class HeldoutProtocol(unittest.TestCase):
+ def test_default_runner_pauses_before_any_compact_request(self):
+  with tempfile.TemporaryDirectory() as tmp:
+   root=Path(tmp);private=root/'private';private.mkdir()
+   manifest={'cells':[{'id':'v3','variant':'handbook-v3'},{'id':'compact','variant':'compact-v1'}]}
+   class FakeMatrix:
+    def __init__(self,*args,**kwargs):self.state={'attempts':[]}
+    def process(self,cell):
+     path=private/'responses'/(cell['id']+'.json')
+     if path.exists():return
+     path.parent.mkdir(exist_ok=True);path.write_text('{}')
+     self.state['attempts'].append({'cell_id':cell['id']})
+    def spend(self,*args):return 0
+    def run(self,*args):raise AssertionError('Unconditional full-matrix runner is forbidden')
+   def fake_load(path):return manifest if Path(path).name=='manifest.json' else {}
+   with patch.object(held,'RUN',root),patch.object(held.ev,'load',side_effect=fake_load),patch.object(held,'Matrix',FakeMatrix):held.run()
+   self.assertTrue((private/'responses/v3.json').exists())
+   self.assertFalse((private/'responses/compact.json').exists())
+   result=json.loads((private/'v3-only-run-status.json').read_text())
+   self.assertTrue(result['compact_deferred']);self.assertEqual(result['compact_paid_attempts'],0)
  def test_public_artifacts_reproduce_selection_without_private_sources(self):
   pool=ev.load(RUN/'demonstration-pool.json');targets=ev.load(RUN/'retrieval-targets.json');expected={x['task_id']:x['demonstration_ids'] for x in ev.load(RUN/'demonstration-selection.json')['selection']}
   self.assertEqual(len(pool),24)
+  for t in targets:self.assertEqual([d['id'] for _,d in retrieve(t,pool)],expected[t['id']])
+ def test_public_artifacts_also_reproduce_original_50_benchmark_slots(self):
+  pool=ev.load(RUN/'demonstration-pool.json');targets=ev.load(RUN/'retrieval-targets.json');selection=ev.load(RUN/'demonstration-selection.json')
+  pool += [{'id':ident,**value} for ident,value in selection['excluded_example_texts'].items()]+targets
+  expected={x['task_id']:x['original_demonstration_ids'] for x in selection['selection']}
   for t in targets:self.assertEqual([d['id'] for _,d in retrieve(t,pool)],expected[t['id']])
  def test_lexical_retrieval_excludes_target_and_breaks_ties_by_id(self):
   target={'id':'target','natural_language':'Create directory at /neutral'}

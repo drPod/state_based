@@ -62,12 +62,12 @@ def freeze():
     ev.write_new(RUN/'demonstration-selection.json',audit)
     print(json.dumps({'planned':len(m['cells']),'pool':len(pool),'estimate':ev.estimate(m)}),flush=True)
 
-def run():
+def run(include_compact=False):
     os.environ.update(ev.load('/tmp/astrogator-provider-env.json'));private=RUN/'private';m=ev.load(private/'manifest.json')
     with (private/'.matrix.lock').open('a') as lock:
         fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
         matrix=Matrix(m,private,total=12,anthropic=6,max_attempts=8,request_fn=transport.request,build_fn=transport.build)
-        for variant in ['handbook-v3','compact-v1']:
+        for variant in (['handbook-v3','compact-v1'] if include_compact else ['handbook-v3']):
             cells=[c for c in m['cells'] if c['variant']==variant]
             while True:
                 before=len(matrix.state['attempts'])
@@ -77,11 +77,20 @@ def run():
                 if before==len(matrix.state['attempts']):break
             print(json.dumps({'variant_finished':variant,'terminal':sum((private/'responses'/(c['id']+'.json')).exists() for c in cells),'accounted_usd':matrix.spend(),'anthropic_usd':matrix.spend('anthropic')}),flush=True)
             (private/(variant+'-finished.json')).write_text(json.dumps({'variant':variant,'accounted_usd':matrix.spend()}))
-        matrix.run(24)
+        terminal=sum((private/'responses'/(c['id']+'.json')).exists() for c in m['cells'])
+        result={'planned':len(m['cells']),'terminal':terminal,'pending':len(m['cells'])-terminal,
+          'attempts':len(matrix.state['attempts']),'accounted_usd':matrix.spend(),'anthropic_accounted_usd':matrix.spend('anthropic'),
+          'total_limit_usd':12,'anthropic_limit_usd':6,'compact_deferred':not include_compact,
+          'compact_paid_attempts':sum('--compact-v1--' in a['cell_id'] for a in matrix.state['attempts'])}
+        (private/('run-status.json' if include_compact else 'v3-only-run-status.json')).write_text(json.dumps(result,indent=2)+'\n')
+        print(json.dumps(result),flush=True)
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('command',choices=['freeze','run','select-public']);a=p.parse_args()
-    if a.command=='select-public':
+    p=argparse.ArgumentParser();p.add_argument('command',choices=['freeze','run','select-public','select-original-public']);p.add_argument('--include-compact',action='store_true',help='Requires renewed user approval; default pauses after v3');a=p.parse_args()
+    if a.command in ('select-public','select-original-public'):
         pool=ev.load(RUN/'demonstration-pool.json');targets=ev.load(RUN/'retrieval-targets.json')
+        if a.command=='select-original-public':
+            excluded=ev.load(RUN/'demonstration-selection.json')['excluded_example_texts']
+            pool=pool+[{'id':ident,**value} for ident,value in excluded.items()]+targets
         print(json.dumps([{'task_id':t['id'],'demonstration_ids':[d['id'] for _,d in retrieve(t,pool)]} for t in targets],indent=2))
-    else:freeze() if a.command=='freeze' else run()
+    else:freeze() if a.command=='freeze' else run(a.include_compact)

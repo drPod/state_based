@@ -1,0 +1,9 @@
+{
+  "recorded_at_utc": "2026-11-12T20:33:58.344176+00:00",
+  "user_decision": "Prioritize dataset validity; defer compact-v1 until after dataset report and renewed decision. Finish/publish already-running handbook-v3 as available.",
+  "compact_paid_attempts": 0,
+  "default_runner_phase": "handbook-v3 only",
+  "interrupted_v3_cell": "deepseek-v4-flash--handbook-v3--a13--r1",
+  "interrupted_unknown_billing_reserve_usd": 0.00366772398,
+  "successful_cells_repeated": 0
+}

@@ -1,0 +1,14 @@
+{
+  "original_manifest_sha256": "74a7bbe58746010365de796780c6effd269de3c7a643d9b899153579a749d44e",
+  "original_manifest_matches_public_protocol": true,
+  "cells": 2520,
+  "actual_attempt_request_bodies_audited": 2758,
+  "all_actual_attempt_messages_match_frozen_manifest": true,
+  "per_task_sets": 21,
+  "slots_per_21_tasks": 84,
+  "benchmark_slots_per_21_tasks": 50,
+  "benchmark_slots_across_all_cells": 6000,
+  "all_slots_across_all_cells": 10080,
+  "unique_demonstration_ids": 37,
+  "unique_benchmark_demonstration_ids": 19
+}

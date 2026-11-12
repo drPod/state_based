@@ -37,31 +37,38 @@
   "excluded_near_duplicates": {
     "a25": {
       "benchmark": "a06",
-      "rationale": "Same conditional file creation; renamed path and literal content."
+      "rationale": "Same conditional file creation; renamed path and literal content.",
+      "legacy_id": "p13"
     },
     "a27": {
       "benchmark": "a04",
-      "rationale": "Same remote file copy; destination-directory creation is an added prerequisite."
+      "rationale": "Same remote file copy; destination-directory creation is an added prerequisite.",
+      "legacy_id": "p03"
     },
     "a28": {
       "benchmark": "a05",
-      "rationale": "Same file move; renamed source/destination and explicit idempotence."
+      "rationale": "Same file move; renamed source/destination and explicit idempotence.",
+      "legacy_id": "p12"
     },
     "a30": {
       "benchmark": "a02",
-      "rationale": "Same recursive directory removal; renamed directory and sibling-preservation clarification."
+      "rationale": "Same recursive directory removal; renamed directory and sibling-preservation clarification.",
+      "legacy_id": "p05"
     },
     "a32": {
       "benchmark": "a13",
-      "rationale": "Same recursive owner-write/all-read/directory-traversal permission policy; renamed path."
+      "rationale": "Same recursive owner-write/all-read/directory-traversal permission policy; renamed path.",
+      "legacy_id": "p04"
     },
     "a46": {
       "benchmark": "a17",
-      "rationale": "Same password-disabling action; renamed account and preservation clarification."
+      "rationale": "Same password-disabling action; renamed account and preservation clarification.",
+      "legacy_id": "p10"
     },
     "a65": {
       "benchmark": "a11",
-      "rationale": "Same append-one-line-to-profile action; renamed profile and line literal."
+      "rationale": "Same append-one-line-to-profile action; renamed profile and line literal.",
+      "legacy_id": "p09"
     }
   },
   "ineligible_original_native_lowering": [
